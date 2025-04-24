@@ -1,3 +1,0 @@
-/home/yarik/Pet-Projects/Task Manager/build/CMakeFiles/TaskManagerAPI.dir
-/home/yarik/Pet-Projects/Task Manager/build/CMakeFiles/edit_cache.dir
-/home/yarik/Pet-Projects/Task Manager/build/CMakeFiles/rebuild_cache.dir

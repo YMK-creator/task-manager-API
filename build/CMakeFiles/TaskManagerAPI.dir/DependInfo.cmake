@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/yarik/Pet-Projects/Task Manager/main.cpp" "CMakeFiles/TaskManagerAPI.dir/main.cpp.o" "gcc" "CMakeFiles/TaskManagerAPI.dir/main.cpp.o.d"
+  "/home/yarik/Pet-Projects/Task Manager/src/main.cpp" "CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o" "gcc" "CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

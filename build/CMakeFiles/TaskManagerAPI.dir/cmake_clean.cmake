@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/TaskManagerAPI.dir/main.cpp.o"
-  "CMakeFiles/TaskManagerAPI.dir/main.cpp.o.d"
+  "CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o"
+  "CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o.d"
   "TaskManagerAPI"
   "TaskManagerAPI.pdb"
 )

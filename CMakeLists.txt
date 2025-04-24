@@ -8,7 +8,7 @@ set(INCLUDE_PATHS
     ${PROJECT_SOURCE_DIR}/Crow/Crow-1.2.1-Linux/include
 )
 
-add_executable(TaskManagerAPI main.cpp)
+add_executable(TaskManagerAPI src/main.cpp)
 
 target_include_directories(TaskManagerAPI PUBLIC ${INCLUDE_PATHS})
 

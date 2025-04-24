@@ -69,28 +69,28 @@ include CMakeFiles/TaskManagerAPI.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TaskManagerAPI.dir/flags.make
 
-CMakeFiles/TaskManagerAPI.dir/main.cpp.o: CMakeFiles/TaskManagerAPI.dir/flags.make
-CMakeFiles/TaskManagerAPI.dir/main.cpp.o: /home/yarik/Pet-Projects/Task\ Manager/main.cpp
-CMakeFiles/TaskManagerAPI.dir/main.cpp.o: CMakeFiles/TaskManagerAPI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/yarik/Pet-Projects/Task Manager/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TaskManagerAPI.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TaskManagerAPI.dir/main.cpp.o -MF CMakeFiles/TaskManagerAPI.dir/main.cpp.o.d -o CMakeFiles/TaskManagerAPI.dir/main.cpp.o -c "/home/yarik/Pet-Projects/Task Manager/main.cpp"
+CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o: CMakeFiles/TaskManagerAPI.dir/flags.make
+CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o: /home/yarik/Pet-Projects/Task\ Manager/src/main.cpp
+CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o: CMakeFiles/TaskManagerAPI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/yarik/Pet-Projects/Task Manager/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o -MF CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o.d -o CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o -c "/home/yarik/Pet-Projects/Task Manager/src/main.cpp"
 
-CMakeFiles/TaskManagerAPI.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TaskManagerAPI.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/yarik/Pet-Projects/Task Manager/main.cpp" > CMakeFiles/TaskManagerAPI.dir/main.cpp.i
+CMakeFiles/TaskManagerAPI.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TaskManagerAPI.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/yarik/Pet-Projects/Task Manager/src/main.cpp" > CMakeFiles/TaskManagerAPI.dir/src/main.cpp.i
 
-CMakeFiles/TaskManagerAPI.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TaskManagerAPI.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/yarik/Pet-Projects/Task Manager/main.cpp" -o CMakeFiles/TaskManagerAPI.dir/main.cpp.s
+CMakeFiles/TaskManagerAPI.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TaskManagerAPI.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/yarik/Pet-Projects/Task Manager/src/main.cpp" -o CMakeFiles/TaskManagerAPI.dir/src/main.cpp.s
 
 # Object files for target TaskManagerAPI
 TaskManagerAPI_OBJECTS = \
-"CMakeFiles/TaskManagerAPI.dir/main.cpp.o"
+"CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o"
 
 # External object files for target TaskManagerAPI
 TaskManagerAPI_EXTERNAL_OBJECTS =
 
-TaskManagerAPI: CMakeFiles/TaskManagerAPI.dir/main.cpp.o
+TaskManagerAPI: CMakeFiles/TaskManagerAPI.dir/src/main.cpp.o
 TaskManagerAPI: CMakeFiles/TaskManagerAPI.dir/build.make
 TaskManagerAPI: CMakeFiles/TaskManagerAPI.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/yarik/Pet-Projects/Task Manager/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TaskManagerAPI"

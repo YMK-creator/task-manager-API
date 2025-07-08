@@ -1,0 +1,37 @@
+# === CMake build artifacts ===
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/Makefile
+/install_manifest.txt
+/cmake_install.cmake
+
+# === Editor/IDE specific ===
+.vscode/
+.idea/
+*.swp
+*~
+
+# === Compiled binaries ===
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+
+# === Logs and temporary files ===
+*.log
+*.tmp
+
+# === Crow / third-party dependencies ===
+# (если ты клонируешь Crow как submodule — исключи, если вручную хранишь)
+/third_party/Crow/build/
+/third_party/**/CMakeFiles/
+/third_party/**/Makefile
+third_party/**/cmake_install.cmake
+
+# === Misc ===
+*.DS_Store

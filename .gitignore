@@ -6,6 +6,8 @@
 /install_manifest.txt
 /cmake_install.cmake
 
+utils/
+
 # === Editor/IDE specific ===
 .vscode/
 .idea/

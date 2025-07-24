@@ -1,41 +1,38 @@
 #include "task_manager/handlers/task_handler.hpp"
 #include "task_manager/middleware/logger.hpp"
+#include "task_manager/utils/db_config.hpp"
+
 #include <crow/json.h>
-#include <mutex>
-#include <vector>
+#include <pqxx/pqxx>
 #include <string>
 
 namespace task_manager {
 
-// Простая структура задачи
-struct Task {
-    int id;
-    std::string title;
-};
-
-// Хранилище задач (в памяти)
-std::vector<Task> tasks;
-std::mutex tasks_mutex;
-int next_id = 1;
-
 template <typename App>
 void register_task_routes(App& app) {
-    CROW_ROUTE(app, "/task")
+    CROW_ROUTE(app, "/tasks")
     .methods(crow::HTTPMethod::GET)([] {
-        std::lock_guard<std::mutex> lock(tasks_mutex);
+        try {
+            pqxx::connection conn(task_manager::utils::get_connection_string());
+            pqxx::read_transaction tx(conn);
 
-        std::vector<crow::json::wvalue> tasks_json;
-        for (const auto& task : tasks) {
-            crow::json::wvalue task_json;
-            task_json["id"] = task.id;
-            task_json["title"] = task.title;
-            tasks_json.push_back(std::move(task_json));
+            pqxx::result result = tx.exec("SELECT id, title FROM tasks ORDER BY id");
+
+            crow::json::wvalue response;
+            std::vector<crow::json::wvalue> tasks_json;
+
+            for (const auto& row : result) {
+                crow::json::wvalue task_json;
+                task_json["id"] = row["id"].as<int>();
+                task_json["title"] = row["title"].as<std::string>();
+                tasks_json.push_back(std::move(task_json));
+            }
+
+            response["tasks"] = std::move(tasks_json);
+            return crow::response{response};
+        } catch (const std::exception& e) {
+            return crow::response(500, std::string("Database error: ") + e.what());
         }
-
-        crow::json::wvalue response;
-        response["tasks"] = std::move(tasks_json);
-
-        return crow::response{response};
     });
 
     CROW_ROUTE(app, "/task/add")
@@ -47,20 +44,32 @@ void register_task_routes(App& app) {
 
         std::string title = body["title"].s();
 
-        std::lock_guard<std::mutex> lock(tasks_mutex);
-        Task task{next_id++, title};
-        tasks.push_back(task);
+        try {
+            pqxx::connection conn(task_manager::utils::get_connection_string());
+            pqxx::work tx(conn);
 
-        crow::json::wvalue result;
-        result["status"] = "success";
-        result["task"]["id"] = task.id;
-        result["task"]["title"] = task.title;
+            pqxx::result result = tx.exec_params(
+                "INSERT INTO tasks (title) VALUES ($1) RETURNING id",
+                title
+            );
 
-        return crow::response{result};
+            tx.commit();
+
+            int task_id = result[0]["id"].as<int>();
+
+            crow::json::wvalue response;
+            response["status"] = "success";
+            response["task"]["id"] = task_id;
+            response["task"]["title"] = title;
+
+            return crow::response{response};
+        } catch (const std::exception& e) {
+            return crow::response(500, std::string("Database error: ") + e.what());
+        }
     });
 }
 
-// Явная инстанциация шаблона
+// Явная инстанциация
 template void register_task_routes<crow::App<task_manager::middleware::Logger>>(
     crow::App<task_manager::middleware::Logger>&
 );

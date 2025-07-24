@@ -3,6 +3,7 @@
 #include "task_manager/middleware/logger.hpp"
 
 int main() {
+
     using AppType = crow::App<task_manager::middleware::Logger>;
     AppType app;
 
